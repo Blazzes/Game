@@ -17,7 +17,7 @@ bool Base_Element::GetSignal() const
 
 SDL_Texture* Base_Element::Draw()
 {
-	return Signal ? TEX->getTexture("ON") : TEX->getTexture(typeid(this).name());
+	return Signal ? TEX->getTexture("ON" + (std::string)typeid(this).name()) : TEX->getTexture(typeid(this).name());
 }
 
 void Base_Element::Next_Update_El()
@@ -50,7 +50,8 @@ void Base_Element::Check_El(int x, int y, Rotate rotate)
 	{
 		sum_sig = -10;
 	}
-	if (el->GetPosition().rotate() == rotate &&
+	if (!dynamic_cast<LArrow*>(el) 
+		&& el->GetPosition().rotate() == rotate &&
 		el->GetSignal() == true)
 	{
 		sum_sig++;

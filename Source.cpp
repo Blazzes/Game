@@ -49,6 +49,10 @@ void draw_el(int el, Rotate rotate)
 		map->Update_El_Map(new PSignal(2, 2, rotate));
 		break;
 	case 7:
+		map->Update_El_Map(new LStart(2, 2));
+		break;
+	case 8:
+		map->Update_El_Map(new Start(2, 2));
 		break;
 	}
 }
@@ -117,6 +121,7 @@ int main(int argv, char* argc[])
 					break;
 				case SDLK_8:
 					elem_u = 8;
+					draw_el(elem_u, rt);
 					break;
 				}
 			}

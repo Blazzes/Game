@@ -13,6 +13,7 @@ void LStart::Logic_Up_El()
 	std::cout << __FILE__ << std::endl;
 	Signal = sum_sig > 0;
 	sum_sig = 0;
+	map->Render();
 	Next_Update_El();
 }
 
@@ -28,10 +29,10 @@ void LStart::Check_El(int x, int y, Rotate rotate)
 
 SDL_Texture* LStart::Draw()
 {
-	return Signal ? TEX->getTexture("ON") : TEX->getTexture(typeid(this).name());
+	return Signal ? TEX->getTexture("ON" + (std::string)typeid(this).name()) : TEX->getTexture(typeid(this).name());
 }
 
 LStart::LStart(int x, int y, Rotate rotate) : Base_Element(x, y, rotate)
 {
-	TEX->addTexture(typeid(this).name(), "Texture/LStart.bmp");
+	TEX->addTexture(typeid(this).name(), "LStart.bmp");
 }

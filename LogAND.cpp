@@ -12,6 +12,7 @@ void LogAND::Logic_Up_El()
 	Signal = sum_sig > 1;
 	std::cout << __FILE__ << std::endl;
 	sum_sig = 0;
+	map->Render();
 	Next_Update_El();
 }
 
@@ -35,5 +36,5 @@ void LogAND::Next_Update_El()
 
 SDL_Texture* LogAND::Draw()
 {
-	return Signal ? TEX->getTexture("ON") : TEX->getTexture(typeid(this).name());
+	return Signal ? TEX->getTexture("ON" + (std::string)typeid(this).name()) : TEX->getTexture(typeid(this).name());
 }

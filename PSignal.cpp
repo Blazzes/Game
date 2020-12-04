@@ -16,6 +16,7 @@ void PSignal::Logic_Up_El()
 	std::cout << __FILE__ << std::endl;
 	Signal = sum_sig > 0;
 	sum_sig = 0;
+	map->Render();
 	Next_Update_El();
 }
 
@@ -39,5 +40,5 @@ void PSignal::Next_Update_El()
 
 SDL_Texture* PSignal::Draw()
 {
-	return Signal ? TEX->getTexture("ON") : TEX->getTexture(typeid(this).name());
+	return Signal ? TEX->getTexture("ON" + (std::string)typeid(this).name()) : TEX->getTexture(typeid(this).name());
 }

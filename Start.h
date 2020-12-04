@@ -9,5 +9,6 @@ public:
 	~Start();
 	virtual void Logic_Up_El() override; // логика работы элемента
 	virtual void Next_Update_El() override; // обновить след.
+	virtual SDL_Texture* Draw() override;
 };
 

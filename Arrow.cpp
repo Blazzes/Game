@@ -13,6 +13,7 @@ void Arrow::Logic_Up_El()
 	std::cout << __FILE__ << std::endl;
 	Signal = sum_sig > 0;
 	sum_sig = 0;
+	map->Render();
 	Next_Update_El();
 }
 
@@ -44,10 +45,10 @@ void Arrow::Next_Update_El()
 
 SDL_Texture* Arrow::Draw()
 {
-	return Signal ? TEX->getTexture("ON") : TEX->getTexture(typeid(this).name());
+	return Signal ? TEX->getTexture("ON" + (std::string)typeid(this).name()) : TEX->getTexture(typeid(this).name());
 }
 
 Arrow::Arrow(int x, int y, Rotate rotate) : Base_Element(x, y, rotate)
 { 
-	TEX->addTexture(typeid(this).name(), "Texture/Arrow.bmp");
+	TEX->addTexture(typeid(this).name(), "Arrow.bmp");
 }
