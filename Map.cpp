@@ -68,5 +68,5 @@ void Map::Render()
 }
 
 Base_Element* Map::GetElement(int x_, int y_) const {
-	return Element[y_ % map_h][x_ % map_w];
+	return Element[abs(y_ + map_h) % map_h][abs(x_ + map_w) % map_w];
 }

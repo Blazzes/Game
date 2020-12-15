@@ -17,7 +17,7 @@ void init()
 	SDL_Init(SDL_INIT_EVERYTHING);
 	win = SDL_CreateWindow("Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_RESIZABLE);
 	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
-	map = new Map(500, 500);
+	map = new Map(1000, 1000);
 }
 void quit()
 {
@@ -31,28 +31,28 @@ void draw_el(int el, Rotate rotate)
 	switch (el)
 	{
 	case 1:
-		map->Update_El_Map(new Arrow(2, 2, rotate));
+		map->Update_El_Map(new Arrow(0, 0, rotate));
 		break;
 	case 2:
-		map->Update_El_Map(new LArrow(2, 2, rotate));
+		map->Update_El_Map(new LArrow(0, 0, rotate));
 		break;
 	case 3:
-		map->Update_El_Map(new LogNOT(2, 2, rotate));
+		map->Update_El_Map(new LogNOT(0, 0, rotate));
 		break;
 	case 4:
-		map->Update_El_Map(new LogAND(2, 2, rotate));
+		map->Update_El_Map(new LogAND(0, 0, rotate));
 		break;
 	case 5:
-		map->Update_El_Map(new BSignal(2, 2, rotate));
+		map->Update_El_Map(new BSignal(0, 0, rotate));
 		break;
 	case 6:
-		map->Update_El_Map(new PSignal(2, 2, rotate));
+		map->Update_El_Map(new PSignal(0, 0, rotate));
 		break;
 	case 7:
-		map->Update_El_Map(new LStart(2, 2));
+		map->Update_El_Map(new LStart(0, 0));
 		break;
 	case 8:
-		map->Update_El_Map(new Start(2, 2));
+		map->Update_El_Map(new Start(0, 0));
 		break;
 	}
 }
